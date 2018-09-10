@@ -9,12 +9,20 @@
         var wBaseUrl = "";
         //rem适配
         var psdWidth = 750;
+        var _jCacheW = 0, _jCacheH = 0;
         window.onresize = function() {
-            var w = window.innerWidth || document.documentElement.clientWidth || document.body.offsetWidth;
-            var fontSize = w * 100 / psdWidth;
+            _jCacheW = window.innerWidth || document.documentElement.clientWidth || document.body.offsetWidth;
+            _jCacheH = window.innerHeight || document.documentElement.clientHeight || document.body.offsetHeight;
+            var fontSize = _jCacheW * 100 / psdWidth;
             document.documentElement.style.fontSize = fontSize + 'px';
         };
         window.onresize();
+        window.protoResize = window.onresize;
+        setInterval(function() {
+            var w = window.innerWidth || document.documentElement.clientWidth || document.body.offsetWidth;
+            var h = window.innerHeight || document.documentElement.clientHeight || document.body.offsetHeight;
+            if (w != _jCacheW || h != _jCacheH) window.onresize();
+        }, 100);
         //document.write
         function getVersionUrl(url) {
             return wBaseUrl + url + "?v=" + wVersion;
@@ -33,6 +41,8 @@
             if (r != null) return unescape(r[2]);
         }
     </script>
+    
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <style type="text/css">
         html { background: #0F0103; color: #fff; }
         body { font-size: 0.24rem; }
@@ -68,7 +78,17 @@
         }
         @keyframes rotate{from{transform: rotate(0deg)}
             to{transform: rotate(359deg)}
-    }
+        }
+        @-webkit-keyframes shake {
+            from { -webkit-transform: rotate(2deg) }
+            50% { -webkit-transform: rotate(-2deg) }
+            to { -webkit-transform: rotate(2deg) }
+        }
+        @keyframes shake {
+            from { transform: rotate(2deg) }
+            50% { transform: rotate(-2deg) }
+            to { transform: rotate(2deg) }
+        }
     </style>
 </head>
 <body>
@@ -91,7 +111,6 @@
         document.addEventListener('WeixinJSBridgeReady', playAudio1);
 
     </script>
-    <script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124417488-1"></script>
