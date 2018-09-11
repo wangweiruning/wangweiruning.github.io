@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/hui.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="hui-header">
+			 <div id="hui-back"></div>
+			<h1 id="titles"></h1>
+		</header>
+		
+		<script src="../js/hui.js"></script>
+		<script type="text/javascript">
+			hui.loading("加载中...");
+			var _self;
+			hui.plusReady(function(){
+			    _self = plus.webview.currentWebview();
+
+			    var urls = _self.url;
+				var titles = _self.titles;
+
+				hui("#titles").html(titles);
+				
+				var bnv = plus.webview.create(urls,'detail',{top:"60px"},{});
+				plus.webview.currentWebview().append(bnv);
+				hui.closeLoading();
+			})
+		</script>
+	</body>
+
+</html>

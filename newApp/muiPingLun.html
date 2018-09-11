@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<link href="css/mui.min.css" rel="stylesheet" />
+<style type="text/css">
+.mui-content img{width:100%;}
+.mui-content *{color:#222222; font-size:16px;}
+</style>
+</head>
+<body>
+<div id="main">
+ <header class="mui-bar mui-bar-nav">
+  <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+  <h1 class="mui-title">{{artInfo.article_title}}</h1>
+ </header>
+ <div class="mui-content" style="padding:10px; line-height:1.8em; color:#222222;" v-html="artInfo.article_content"></div>
+ <div style="height:50px; line-height:50px; padding:0px 10px;">
+  相关评论
+ </div>
+ <div style="line-height:50px; text-align:center; color:#8F8F94;" v-bind:hidden="commentsLoadingHide">
+  {{commentsLoading}}
+ </div>
+ <div class="comments" v-for="items in comments">
+  <div class="comments-face"><img v-bind:src="items.u_face" /></div>
+  <div class="comments-content">
+   <b>{{items.u_name}}</b><br />
+   {{items.comments_contents}}<br />
+   <span>{{items.comments_date}}</span>
+  </div>
+ </div>
+</div>
+<style>
+.comments{padding:8px; background:#FFFFFF; margin-bottom:1px; display:flex;}
+.comments-face{width:38px; flex-shrink:0;}
+.comments-face img{width:100%;}
+.comments-content{line-height:1.6em; font-size:14px; padding:0px 10px; width:100%;}
+.comments-content span{font-size:10px; color:#6D6D72;}
+.comments-content b{font-weight:400; font-size:15px; color:#6641E2;}
+.footer-line{height:60px;}
+#footer{width:100%; height:50px; position:fixed; z-index:9; left:0; bottom:0; background:#F7F7F7; display:flex; border-top:1px solid #DDDDDD;}
+.footer-input{width:100%; height:30px; margin:9px 5px;}
+.footer-submit{width:50px; height:30px; line-height:30px; border:1px solid #ACACB4;
+border-radius:3px; font-size:14px; margin:9px 5px; text-align:center; flex-shrink:0;}
+#footer textarea{height:30px; line-height:20px; width:100%; font-size:14px; padding:0px 8px;}
+</style>
+<div class="footer-line"></div>
+<div id="footer">
+ <div class="footer-input">
+  <textarea id="submitContent"></textarea>
+ </div>
+ <div class="footer-submit" id="submitBtn">提交</div>
+</div>
+<script src="js/mui.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+mui.init();
+var artId = 0;
+var artInfoObj = new Vue({
+ el : "#main",
+ data : {
+  artInfo : {article_title : '加载中...'},
+  comments : [],
+  commentsLoading : '加载中...',
+  commentsLoadingHide : false
+ } 
+});
+mui.plusReady(function(){
+ setImmersedStatusbar();
+ //获取当前页面接收传递的文章id
+ var _self = plus.webview.currentWebview();
+ artId = _self.artId;
+ //获取文章信息
+ mui.getJSON(
+  apiUrl+'article&m=articleInfo&artid='+artId,
+  function(res){
+   artInfoObj.artInfo = res.data;
+  }
+ );
+ //加载评论
+ getComments();
+});
+function getComments(){
+ mui.getJSON(
+  apiUrl+'articleComments&m=getComments&topicid='+artId,
+  function(res){
+   if(res.status == 'ok'){
+    artInfoObj.commentsLoadingHide = true;
+    artInfoObj.comments = res.data;
+   }else{
+    artInfoObj.commentsLoading = '暂无评论';
+   }
+  }
+ );
+}
+document.getElementById('submitBtn').addEventListener('tap', function(){
+ var submitContent = document.getElementById('submitContent').value;
+ if(submitContent.length < 2){
+  mui.toast('评论内容至少2个字'); return ;
+ }
+ //
+ var suid = plus.storage.getItem('suid');
+ var srand = plus.storage.getItem('srand');
+ 
+ mui.post(
+  apiUrl+'articleComments&m=submit',
+  {
+   wit_suid  : suid,
+   wit_srand : srand,
+   topicid   : artId,
+   contents  : submitContent
+  },
+  function(res){
+   if(res.status == 'ok'){
+    //清空输入内容
+    document.getElementById('submitContent').value = '';
+    mui.toast('评论提交成功');
+    //加载评论
+    getComments();
+   }else{
+    mui.toast(res.data);
+   }
+  },
+  'json'
+ );
+});
+</script>
+</body>
+</html>

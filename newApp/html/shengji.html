@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title></title>
+<link type="text/css" rel="stylesheet" href="../css/hui.css" />
+</head>
+<body>
+<div class="HUI_Wrap">
+    <div id="newsList" class="HUI_MediaList1"></div>
+</div>
+<script type="text/javascript" src="../js/hui.js"></script>
+<script type="text/javascript">
+var page = 1, cate = 0, myappVerson = '1.0', dtask;
+hui.plusReady(function(){
+    changeCate(0);
+    hui.refresh(getNews);
+    hui.loadMore(loadMore);
+    checkVersion();
+});
+function checkVersion(){
+    //......
+}
+hui.Back = function(){
+    var parentView = plus.webview.currentWebview().parent();
+    parentView.evalJS('hui.Back();');
+}
+function changeCate(cateId){cate = cateId; getNews();}
+function loadMore(){
+    var html = '';
+    hui.get(
+        'http://hoa.hcoder.net/index.php?user=hcoder&pwd=hcoder&m=mediaList&page='+page+'&cate='+cate,
+        function(data){
+            if(data == 'null'){hui.endLoadMore(true); return false;}
+            hui.endLoadMore(); 
+            var arrNews = data.split('--hcSplitor--');
+            for(var i = 0; i < arrNews.length; i++){
+                var itemArr = arrNews[i].split('--hcListSplitor--');
+                 html += '<li><a href="javascript:hui.open(\'info.html\',{},true,{newsId:\''+itemArr[0]+'\'});">'+
+            '<div class="HUI_MediaListImg"><img src="'+itemArr[1]+'" /></div>'+
+            '<div class="HUI_MediaListContent">'+
+                '<h1>'+itemArr[2]+'</h1>'+
+            '</div>'+
+            '</a></li>';
+            }
+            var ul = document.createElement('ul');
+            ul.innerHTML = html;
+            hui(ul).appendTo('#newsList');
+            page++;
+        },
+        function(e){
+            hui.toast('获取新闻失败，请检查网络'); hui.centerLoading(true);
+            hui.endRefresh();
+        }
+    );
+}
+getNews()
+function getNews(){
+    page = 1;
+    var html = '';
+    hui.centerLoading();
+    hui.isLoadMoreIng = false;
+    hui.scrollTop(0);
+    hui.get(
+        'http://hoa.hcoder.net/index.php?user=hcoder&pwd=hcoder&m=mediaList&page='+page+'&cate='+cate,
+        function(data){
+            var arrNews = data.split('--hcSplitor--');
+            for(var i = 0; i < arrNews.length; i++){
+                var itemArr = arrNews[i].split('--hcListSplitor--');
+                 html += '<li><a href="javascript:hui.open(\'info.html\',{},true,{newsId:\''+itemArr[0]+'\'});">'+
+            '<div class="HUI_MediaListImg"><img src="'+itemArr[1]+'" /></div>'+
+            '<div class="HUI_MediaListContent">'+
+                '<h1>'+itemArr[2]+'</h1>'+
+            '</div>'+
+            '</a></li>';
+            }
+            hui('#newsList').html('<ul>'+html+'</ul>');
+            hui.centerLoading(true);
+            hui.endRefresh();
+            page++;
+        },
+        function(e){
+            hui.toast('获取新闻失败，请检查网络'); hui.centerLoading(true);
+            hui.endRefresh();
+        }
+    );
+}
+</script>
+</body>
+</html>

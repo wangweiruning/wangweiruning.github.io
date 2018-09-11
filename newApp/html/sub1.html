@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <h1>腾讯新闻</h1>
+</header>
+<div class="hui-wrap">
+        <div class="hui-swipe" id="swipe2">
+            <div class="hui-swipe-items"></div>
+        </div>
+</div>
+<div class="hui-wrap">
+    <div class="hui-center-title"><h1>新闻列表</h1></div>
+    <div style="padding:10px;">
+    <div id="refreshContainer" class="hui-refresh">
+        <div class="hui-refresh-icon"></div>
+        <div class="hui-refresh-content hui-list" id="list">
+           <ul id="arcicle">
+            <!--
+            	描述：内容集合
+            -->
+           </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/hui-swipe.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/hui-refresh-load-more.js"></script>
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	
+hui.Back = null;
+hui.plusReady(function(){
+	//判断是否支持沉浸式
+		   var isImmersedStatusbar = plus.navigator.isImmersedStatusbar();
+		   //获取系统状态栏高度
+		   var StatusbarHeight = plus.navigator.getStatusbarHeight();		   
+		   console.log(StatusbarHeight);
+		   hui('.hui-header').css({'paddingTop':StatusbarHeight + 'px'});
+		   hui('#hui-back').css({top:StatusbarHeight+'px'});
+	
+    var indexView = plus.webview.getLaunchWebview();
+    var nextPage = {
+        pageId : 'html/sub2.html', 
+        callBack : function(){
+            indexView.evalJS('hui("#hui-footer").find("a").removeClass("hui-footer-active"); hui("#nav-news").addClass("hui-footer-active")');
+        }
+    };
+    var prevPage = null;
+    hui.drag(prevPage, nextPage);
+});
+hui.get(
+    'http://hoa.hcoder.net/index.php?user=hcoder&pwd=hcoder&m=lunbo',
+    function(res){
+        var arr  = res.split('--hcSplitor--');
+        for(var i = 0; i < arr.length; i++){
+            var div = document.createElement('div')
+            div.setAttribute('class', 'hui-swipe-item');
+            div.innerHTML = arr[i];
+            hui(div).appendTo('#swipe2 .hui-swipe-items');    
+        }
+        var swipe2 = new huiSwpie('#swipe2');
+        swipe2.run();
+    },
+    function(){
+        hui.toast('读取远程数据失败');
+    }   
+);	
+</script>
+<script>
+	
+	function showProductInfo(url,titles){
+		hui.open("createShow.html",{},true,{url:url,titles:titles})
+	}
+hui.refresh('#refreshContainer', refresh);
+hui.loadMore(getMore);
+//加载更多
+function getMore(){
+    $.ajax({ 
+        url:'http://v.juhe.cn/toutiao/index?key=76db99a8de0bb25da0ea78e8747f4971&type=guoji', 
+        type:'GET', 
+        dataType:'JSONP',  // 处理Ajax跨域问题
+        success: function(res){ 
+        	var data = JSON.stringify(res);
+        		data = JSON.parse(data);
+                data = data.result.data;
+      
+         for(var i = 0; i < data.length; i++){
+                 var li = document.createElement('li');
+                 li.style.borderBottom="1px solid gray";
+                 li.style.height="auto";
+                 
+                 var pic1 =  data[i].thumbnail_pic_s02 ? '<img src='+data[i].thumbnail_pic_s02+'/>':" ";
+                 
+                 var pic2 =  data[i].thumbnail_pic_s03 ? '<img src='+data[i].thumbnail_pic_s03+'/>':" ";
+                 
+                li.innerHTML ='<div class="hui-media-content" style="width:100%;height:auto">'+
+                        '<p style="width:95%;margin:1em auto;color:red"><a href="javascript:showProductInfo(\''+data[i].url+'\',\''+data[i].author_name+'\');">'+data[i].title +'</a></p>'+
+                        '<img src='+data[i].thumbnail_pic_s+'/>'+pic1+pic2+
+                        '<p>'+
+                        	'<span>'+data[i].author_name+'</span>'+
+                        	'<span style="float: right;">'+data[i].date+'</span>'+
+                        '</p>'+
+                    '</div>';
+                hui(li).appendTo('#arcicle');
+            }
+            
+            hui.endLoadMore();
+       
+        }
+    })
+}
+function refresh(){
+    if(hui.refreshNumber < 1){hui.loading('加载中...');}
+     $.ajax({ 
+        url:'http://v.juhe.cn/toutiao/index?key=76db99a8de0bb25da0ea78e8747f4971&type=top', 
+        type:'GET', 
+        dataType:'JSONP',  // 处理Ajax跨域问题
+        success: function(res){ 
+        	var data = JSON.stringify(res);
+        		data = JSON.parse(data);
+                data = data.result.data;
+                console.log(data)
+            var html = '';
+            for(var i = 0; i < data.length; i++){
+            	var pic1 =  data[i].thumbnail_pic_s02 ? '<img src='+data[i].thumbnail_pic_s02+'/>':" ";
+                var pic2 =  data[i].thumbnail_pic_s03 ? '<img src='+data[i].thumbnail_pic_s03+'/>':" ";
+                html += '<li style="border-bottom:1px solid gray;height:auto !important">'+
+                    '<div class="hui-media-content" style="width:100%;height:auto">'+
+                        '<p style="width:95%;margin:1em auto;color:red"><a href="javascript:showProductInfo(\''+data[i].url+'\',\''+data[i].author_name+'\');">'+data[i].title +'</a></p>'+
+                        '<img src='+data[i].thumbnail_pic_s+'/>'+pic1+pic2+
+                        '<p>'+
+                        	'<span>'+data[i].author_name+'</span>'+
+                        	'<span style="float: right;">'+data[i].date+'</span>'+
+                        '</p>'+
+                    '</div>'+
+            '</li>';
+            }
+            hui('#arcicle').html(html);
+            hui.endRefresh();
+            //关闭loading
+            hui.loading('加载中...', true);
+        },
+        error:function(){
+            hui.loading('加载中...', true);
+            hui('#arcicle').html('<div style="text-align: center;margin:50px auto">'+
+            						'<img src="../image/GIyMDJnuqmcqPLpHCSkj.svg">'+
+            						'<h2 style="text-align: center;line-height: 2rem;">无法获取数据</h2>'+
+            						'<p style="text-align: center;color:red;ine-height:2rem;">请检查网络是否正确</p>'+
+            						'</div>');
+            hui.toast('连接服务器失败！');
+            hui.endRefresh();
+        }
+    }); 
+ 
+}
+</script>
+</body>
+</html>

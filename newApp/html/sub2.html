@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <h1>笑话总集</h1> 
+</header>
+<div class="hui-wrap"> 
+    <div class="hui-wrap">
+    <div id="refreshContainer" class="hui-refresh">
+        <div class="hui-refresh-icon"></div>
+        <div class="hui-refresh-content hui-list" id="list">
+           <ul id="arcicle" style="margin-top: 10px;">
+            <!--
+            	描述：内容集合
+            -->
+           </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--
+	播放笑话
+-->
+<div id="bdtts_div_id">
+			<audio id="tts_autio_id" autoplay="autoplay">
+				<source id="tts_source_id" src="http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&text=" type="audio/mpeg">
+				<embed id="tts_embed_id" height="0" width="0" src="">
+			</audio>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/hui-refresh-load-more.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+hui.refresh('#refreshContainer', refresh);
+
+
+hui.loadMore(getMore);
+//加载更多
+function getMore(){
+    $.ajax({ 
+        url:"https:\/\/v.juhe.cn\/joke\/content\/text.php?key=e0f404df1a1469811b3ce7239f0462d4&pagesize=10&page="+page, 
+        type:'GET', 
+        dataType:'JSONP',  // 处理Ajax跨域问题
+        success: function(res){ 
+        	var data = JSON.stringify(res);
+        		data = JSON.parse(data);
+                data = data.result.data;
+      
+         for(var i = 0; i < data.length; i++){
+                 var li = document.createElement('li');
+                 li.style.borderBottom="1px solid gray";
+                 li.style.height="auto";
+                li.innerHTML ='<div class="hui-media-content" style="width:100%;height:auto">'+
+                        '<p style="width:95%;margin:1em auto;color:red" onclick="songs(this.innerText)">'+data[i].content +'</p>'+
+                        '<p>'+
+                        	'<span>'+data[i].unixtime+'</span>'+
+                        	'<span style="float: right;">'+data[i].updatetime+'</span>'+
+                        '</p>'+
+                    '</div>';
+                hui(li).appendTo('#arcicle');
+            }
+            
+            hui.endLoadMore();
+        page++;
+        }
+        })
+}
+function refresh(){
+    if(hui.refreshNumber < 1){hui.loading('加载中...');}
+     $.ajax({ 
+        url:"https:\/\/v.juhe.cn\/joke\/content\/text.php?key=e0f404df1a1469811b3ce7239f0462d4&page=1&pagesize=10", 
+        type:'GET', 
+        dataType:'JSONP',  // 处理Ajax跨域问题
+        success: function(res){ 
+        	var data = JSON.stringify(res);
+        		data = JSON.parse(data);
+                data = data.result.data;
+            var html = '';
+            for(var i = 0; i < data.length; i++){
+                html += '<li style="border-bottom:1px solid gray;height:auto !important">'+
+                    '<div class="hui-media-content" style="width:100%;height:auto">'+
+                        '<p style="width:95%;margin:1em auto;color:red" onclick="songs(this.innerText)">'+data[i].content +'</p>'+
+                        '<p>'+
+                        	'<span>'+data[i].unixtime+'</span>'+
+                        	'<span style="float: right;">'+data[i].updatetime+'</span>'+
+                        '</p>'+
+                    '</div>'+
+            '</li>';
+            }
+            hui('#arcicle').html(html);
+            hui.endRefresh();
+            page=2;
+            //关闭loading
+            hui.loading('加载中...', true);
+        },
+        error:function(){
+            hui.loading('加载中...', true);
+            hui('#arcicle').html('<div style="text-align: center;margin:50px auto">'+
+            						'<img src="../image/GIyMDJnuqmcqPLpHCSkj.svg">'+
+            						'<h2 style="text-align: center;line-height: 2rem;">无法获取数据</h2>'+
+            						'<p style="text-align: center;color:red;ine-height:2rem;">请检查网络是否正确</p>'+
+            						'</div>');;
+            hui.toast('连接服务器失败！');
+            hui.endRefresh();
+        }
+    }); 
+ 
+}
+
+function songs(val){
+	hui.confirm('您确认要播放笑话吗？', ['取消','确定'], function(){
+			var ttsDiv = document.getElementById('bdtts_div_id');
+			var ttsAudio = document.getElementById('tts_autio_id');
+			ttsDiv.removeChild(ttsAudio);
+			var au1 = '<audio id="tts_autio_id" autoplay="autoplay">';
+			var sss = '<source id="tts_source_id" src="http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=6&text='+val+'" type="audio/mpeg">';
+			var eee = '<embed id="tts_embed_id" height="0" width="0" src="">';
+			var au2 = '</audio>';
+			ttsDiv.innerHTML = au1 + sss + eee + au2;
+			ttsAudio = document.getElementById('tts_autio_id');
+			ttsAudio.play();
+    },function(){
+        console.log('取消后执行...');
+    });
+}
+</script>
+<script type="text/javascript">
+
+//禁用返回键
+hui.Back = null;
+hui.plusReady(function(){
+	
+	//判断是否支持沉浸式
+   var isImmersedStatusbar = plus.navigator.isImmersedStatusbar();
+   //获取系统状态栏高度
+   var StatusbarHeight = plus.navigator.getStatusbarHeight();
+   console.log(StatusbarHeight);
+   hui('.hui-header').css({'paddingTop':StatusbarHeight + 'px'});
+   hui('#hui-back').css({top:StatusbarHeight+'px'});
+	
+    var indexView = plus.webview.getLaunchWebview();
+    var nextPage = {
+        pageId : 'html/sub3.html', 
+        callBack : function(){
+            indexView.evalJS('hui("#hui-footer").find("a").removeClass("hui-footer-active"); hui("#nav-forum").addClass("hui-footer-active")');
+        }
+    };
+    var prevPage = {
+        pageId : 'html/sub1.html', 
+        callBack : function(){
+            indexView.evalJS('hui("#hui-footer").find("a").removeClass("hui-footer-active"); hui("#nav-home").addClass("hui-footer-active")');
+        }
+    };
+    hui.drag(prevPage, nextPage);
+  
+});
+</script>
+</body>
+</html>

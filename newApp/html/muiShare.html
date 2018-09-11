@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../css/mui.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" style="top:44px">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <a class="mui-icon iconfont icon-send mui-pull-right" onclick="openShare();" >分享</a>
+		    <h1 class="mui-title">标题</h1>
+		</header>
+	
+<script src="../js/mui.js"></script>
+<script type="text/javascript">
+		function openShare() {
+			shareWebview();
+		}
+		mui.plusReady(function() {
+			ws = plus.webview.currentWebview();
+			//关闭splash页面；
+			plus.navigator.closeSplashscreen();
+		})
+		var sharew;
+		var ws = null;
+		/**
+		 *分享窗口
+		 */
+		function shareWebview() {
+			ws = plus.webview.currentWebview();
+			if (sharew) { // 避免快速多次点击创建多个窗口
+				return;
+			}
+			var top = plus.display.resolutionHeight - 134;
+			var href = "share.html"; 
+			sharew = plus.webview.create(href, "share.html", {
+				width: '100%',
+				height: '134',
+				top: top,
+				scrollIndicator: 'none',
+				scalable: false,
+				popGesture: 'none'
+			}, {
+				shareInfo: {
+					"href": "www.baidu.com",
+					"title": "【加工跟单】新的订单详情",
+					"content": "欢迎使用加工跟单APP,点击查看订单详情！",
+					"pageSourceId": ws.id
+				}
+			});
+			sharew.addEventListener("loaded", function() {
+				sharew.show('slide-in-bottom', 300);
+			}, false);
+			// 显示遮罩层  
+			ws.setStyle({
+				mask: "rgba(0,0,0,0.5)"
+			});
+			// 点击关闭遮罩层
+			ws.addEventListener("maskClick", closeMask, false);
+		}
+ 
+		function closeMask() {
+			ws.setStyle({
+				mask: "none"
+			});
+			//避免出现特殊情况，确保分享页面在初始化时关闭 
+			if (!sharew) {
+				sharew = plus.webview.getWebviewById("share.html");
+			}
+			if (sharew) {
+				sharew.close();
+				sharew = null;
+			}
+		}
+	</script>
+
+	</body>
+</html>

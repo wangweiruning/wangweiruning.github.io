@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <h1 style="text-align: left;">反馈信息</h1>
+    <h1 style="text-align: right;" id="subMitConfig">提交反馈</h1>
+</header>
+<div class="hui-warp" style="margin-top:55px;">
+	<textarea name="textareas" rows="20" id="textareas" style="margin:10px 5% 10px;
+		width:80%;border-radius: 20px;
+		padding-left:5%;padding-right:5%" placeholder="请留下您宝贵的建议，让我们一同进步吧~~"></textarea>
+</div>
+<div class="hui-warp" style="position: relative;">
+	<h2 style="text-align: center;">十分真诚的希望留下您的印记</h2>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+hui.Back = null;
+hui.plusReady(function(){
+	//判断是否支持沉浸式
+		   var isImmersedStatusbar = plus.navigator.isImmersedStatusbar();
+		   //获取系统状态栏高度
+		   var StatusbarHeight = plus.navigator.getStatusbarHeight();		   
+		   console.log(StatusbarHeight);
+		   hui('.hui-header').css({'paddingTop':StatusbarHeight + 'px'});
+		   hui('#hui-back').css({top:StatusbarHeight+'px'});
+    var indexView = plus.webview.getLaunchWebview();
+    var nextPage = {
+        pageId : 'html/cutPicture.html', 
+        callBack : function(){
+            indexView.evalJS('hui("#hui-footer").find("a").removeClass("hui-footer-active"); hui("#nav-my").addClass("hui-footer-active")');
+        }
+    };
+    var prevPage = {
+        pageId : 'html/sub2.html', 
+        callBack : function(){
+            indexView.evalJS('hui("#hui-footer").find("a").removeClass("hui-footer-active"); hui("#nav-news").addClass("hui-footer-active")');
+        }
+    };
+    hui.drag(prevPage, nextPage);
+    
+});
+
+hui("#subMitConfig").click(function(){
+	hui.toast(hui("#textareas").val());
+		if(hui("#textareas").val()==""){
+			hui.toast("请留下您的意见，谢谢");
+		}else{
+			hui.toast("感谢您宝贵的意见，我们会尽快完善的，谢谢");
+			hui("#textareas").val("");
+		}	
+   	})
+
+</script>
+</body>
+</html>

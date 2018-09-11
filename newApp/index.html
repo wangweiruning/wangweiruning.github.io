@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="css/hui.css" />
+<style type="text/css">
+	hui-start-banner{width:100%; height:100%; position:fixed; z-index:9998; left:0px; top:0px; background:#FFFFFF; display:none;}
+#hui-start-banner-close{width:50px; height:50px; position:fixed; z-index:9999; top:50px; right:20px; background:#F5F6F7; display:none; text-align:center; border-radius:50px; line-height:50px; font-size:14px; color:#666;}
+.hui-start-banner .hui-swipe-indicator{width:96%; position:absolute; z-index:3; left:2%; bottom:20px; display:none;}
+#hui-footer a{
+-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+-webkit-user-select: none;
+-moz-user-focus: none;
+-moz-user-select: none;
+}
+</style>
+</head>
+<body>	
+<div class="hui-wrap"></div>
+<div id="hui-footer">
+    <a href="javascript:changeSubView(0);" id="nav-home" class="hui-footer-active">
+        <div class="hui-footer-icons hui-icons-home"></div>
+        <div class="hui-footer-text">首页</div>
+    </a>
+    <a href="javascript:changeSubView(1);" id="nav-news">
+        <div class="hui-footer-icons hui-icons-news"></div>
+        <div class="hui-footer-text">新闻</div>
+    </a>
+    <a href="javascript:changeSubView(2);" id="nav-forum">
+        <div class="hui-footer-icons hui-icons-forum"></div>
+        <div class="hui-footer-text">社区</div>
+    </a>
+    <a href="javascript:changeSubView(3);" id="nav-my">
+        <div class="hui-footer-icons hui-icons-my"></div>
+        <div class="hui-footer-text">我的</div>
+    </a>
+</div>
+<script src="js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+/**
+*关闭引导页
+**/
+setTimeout(function(){
+	plus.navigator.closeSplashscreen();
+
+},1500)
+
+// 创建可滑动子窗口
+var subpages =  new Array(
+    new Array('html/sub1.html', {top:'0px', bottom:"55px", left:"0"}),
+    new Array('html/sub2.html', {top:'0px', bottom:"55px", left:"100%"}),
+    new Array('html/sub3.html', {top:'0px', bottom:"55px", left:"200%"}),
+    new Array('html/cutPicture.html', {top:'0px', bottom:"55px", left:"300%"})
+);
+hui.plusReady(function(){//加载subpages
+ 	hui.subpages(subpages);
+});
+
+//点击底部按钮切换窗口
+function changeSubView(index){
+ for(var i = 0; i< subpages.length; i++){
+  var subpage = hui.getView(subpages[i][0]);
+  subpage.setStyle({'top':0,'left' : ((index - i) * 100 )+'%'});
+ }
+ 
+  //选项状态激活
+ hui('#hui-footer a').removeClass('hui-footer-active');
+ hui('#hui-footer a').eq(index).addClass('hui-footer-active');
+}
+
+var height = document.documentElement.clientHeight || document.body.clientHeight;
+window.onresize = function() {
+    var heightView = document.documentElement.clientHeight || document.body.clientHeight;
+    if(heightView < height) {
+        plus.webview.currentWebview().setStyle({
+            height: height
+        });
+    }
+}
+</script>
+</body>
+</html>

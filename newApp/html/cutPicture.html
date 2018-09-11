@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+<style type="text/css">
+	#hui-swaper{
+		position: fixed;bottom:10%;
+	}
+	#hui-swaper h2{
+		text-align: center;
+		margin-top:2%;
+		color: grey;
+	}
+</style>
+</head>
+<body>
+<header class="hui-header">
+    <h1>abuot us</h1>
+</header>
+<div class="hui-warp" style="margin:0 auto;margin-top: 150px;">
+	<div style="margin:0 auto; width:120px">
+		<img src="../image/chrome.png" style="width:120px;height:120px;border-radius: 15%;"/>
+	</div>
+	<h2 style="text-align: center;font-size: 24px;color: royalblue;">IReading</h2>
+	<p style="text-align: center;font-size: 24px;color: red;">让生活更精彩</p>
+</div>
+<div id="hui-swaper" style="height: 100px;width: 100%;">
+    <h2>版权所有@ wangweiruning<h2>
+   	<h2>开法者 ：wangweiruning@163.com</h2>
+    <h2>如有需求，请发送消息至邮箱wangweiruning163.con</h2>
+</div>
+<script type="text/javascript" src="../js/hui.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../js/hui-image-cuter.js" charset="UTF-8"></script>
+<script type="text/javascript">
+	hui.Back = null;
+	  
+		hui.plusReady(function(){
+		   //判断是否支持沉浸式
+		   var isImmersedStatusbar = plus.navigator.isImmersedStatusbar();
+		   //获取系统状态栏高度
+		   var StatusbarHeight = plus.navigator.getStatusbarHeight();		   
+		   console.log(StatusbarHeight);
+		   hui('.hui-header').css({'paddingTop':StatusbarHeight + 'px'});
+		   hui('#hui-back').css({top:StatusbarHeight+'px'});
+		   
+		   
+    		var indexView = plus.webview.getLaunchWebview();
+    	    var nextPage = null;
+		    var prevPage ={
+		        pageId : 'html/sub3.html', 
+		        callBack : function(){
+		            indexView.evalJS('hui("#hui-footer").find("a").removeClass("hui-footer-active"); hui("#nav-forum").addClass("hui-footer-active")');
+		        }
+		    }; 
+		    hui.drag(prevPage, nextPage);
+		});
+
+</script>
+</body>
+</html>
