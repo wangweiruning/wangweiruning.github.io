@@ -4,7 +4,7 @@ import Login from './components/Login';
 import './main.css'
 ReactDom.render(
         <div>
-            <h2>hello world</h2>
+            <h2 style={{color:"#666"}}>hello11111111 world</h2>
         <Login/>
         </div>,
     document.getElementById('root')
