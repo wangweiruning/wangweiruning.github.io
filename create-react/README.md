@@ -1,5 +1,14 @@
 webpack安装及配置
 
+git clone 
+
+npm isntall
+
+npm run dev  启动项目http://localhost:8080
+npm run build 打包build
+
+
+
 1. 起步
 
 新建项目目录，初始化npm，新建开发源目录
