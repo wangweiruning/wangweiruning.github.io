@@ -66,7 +66,7 @@ function bootstrapJS(data,index){
         for (let i=0;i<point.length;i++) {
             let {sceneId,x,y} = point[i];
             let sUrl = data.filter(v=>v.ids==sceneId);
-            if(sUrl.length) sUrl = sUrl[0].imgpath;
+            if(sUrl.length) sUrl = sUrl[0].img;
             else sUrl = ""
             a[sceneId] = {
                 "hfov": 50,
@@ -77,6 +77,7 @@ function bootstrapJS(data,index){
                 "hotSpots":hotSpots
             }
         }
+
          return a
       }())
     });
