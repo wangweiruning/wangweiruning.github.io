@@ -38,6 +38,7 @@
 function bootstrapJS(data,index){
     let is;
     let url = data[index].imgpath;
+    let http= data[index].http;
     let hotSpots = [];
     for (let i=0;i<data[index].point.length;i++) {
       is = data[index].point[i].sceneId;
@@ -69,12 +70,20 @@ function bootstrapJS(data,index){
             if(sUrl.length) sUrl = sUrl[0].img;
             else sUrl = ""
             a[sceneId] = {
-                "hfov": 50,
+                "hfov": 100,
                 "pitch": 10,
                 "yaw": 50,
-                "type": "equirectangular",
-                "panorama": sUrl,
-                "hotSpots":hotSpots
+                "compass": true,
+                "northOffset": 289,
+                "type": "multires",
+                "multiRes": {
+                "basePath": http,
+                "path": sUrl,
+                "fallbackPath": "/fallback/%s",
+                "tileResolution": 512,
+                "maxLevel": 6,
+                "cubeResolution": 8432
+            },
             }
         }
 
