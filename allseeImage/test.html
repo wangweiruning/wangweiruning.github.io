@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-    <link rel="stylesheet" href="https://cdn.pannellum.org/2.4/pannellum.css"/>
+    <link rel="stylesheet" href="http://cdn.pannellum.org/2.4/pannellum.css"/>
     
     <style>
     #panorama {
@@ -15,14 +15,12 @@
     </style>
 </head>
 <body>
-
+        <!-- panorama -->
 <div id="panorama"></div>
-<script type="text/javascript" src="https://cdn.pannellum.org/2.4/pannellum.js"></script>
+<script type="text/javascript" src="http://cdn.pannellum.org/2.4/pannellum.js"></script>
 <script>
-    //   runapp('https://pannellum.org/images/jfk.jpg')
+    //   runapp('http://39.98.230.127:7100/attachments/checkquestion/20190501/201905010257489808.png')
     function runapp(url){
-        alert(url)
-        alert(url=='https://pannellum.org/images/jfk.jpg')
         pannellum.viewer('panorama', {
             "type": "equirectangular",
             "panorama":url,
