@@ -36,8 +36,6 @@
 
 <script>
 
-
-
 function bootstrapJS(data,index){
 
     pannellum.viewer('panorama', {   
@@ -48,58 +46,29 @@ function bootstrapJS(data,index){
     },
     
     "scenes": {
-        "library": {
-            "hfov": 100,
-            "pitch": 10,
-            "yaw": 50,
-            "compass": true,
-            "northOffset": 289,
-            "type": "multires",
-            "multiRes": {
-                "basePath": "https:\/\/pannellum.org/images/multires/library",
-                "path": "/%l/%s%y_%x",
-                "fallbackPath": "/fallback/%s",
-                "extension": "jpg",
-                "tileResolution": 512,
-                "maxLevel": 6,
-                "cubeResolution": 8432
-            }
-        },
-
-        "gallery": {
-            "hfov": 100,
-            "yaw": -20,
-            "type": "multires",
-            "compass": true,
-            "northOffset": 240,
-            "multiRes": {
-                "basePath": "https:\/\/pannellum.org/images/multires/gallery",
-                "path": "/%l/%s%y_%x",
-                "fallbackPath": "/fallback/%s",
-                "extension": "jpg",
-                "tileResolution": 512,
-                "maxLevel": 5,
-                "cubeResolution": 4384
+          index : {
+                "hfov": 50,
+                "pitch": 10,
+                "yaw": 50,
+                "type": "equirectangular",
+                "panorama": data.http+data.img,
+                // "hotSpots":hotSpots[index]
             },
-        },
-        
-        "6th-floor": {
-            "hfov": 100,
-            "pitch": -20,
-            "yaw": -20,
-            "compass": true,
-            "northOffset": 0,
-            "type": "multires",
-            "multiRes": {
-                "basePath": "https:\/\/pannellum.org/images/multires/6th-floor",
-                "path": "/%l/%s%y_%x",
-                "fallbackPath": "/fallback/%s",
-                "extension": "jpg",
-                "tileResolution": 512,
-                "maxLevel": 4,
-                "cubeResolution": 3968
-            }
-        }
+        // "library": {
+        //     "compass": true,
+        //     "northOffset": 289,
+        //     "type": "multires",
+        //     "multiRes": {
+        //         "basePath": "https:\/\/pannellum.org/images/multires/library",
+        //         "path": "/%l/%s%y_%x",
+        //         "fallbackPath": "/fallback/%s",
+        //         "extension": "jpg",
+        //         "tileResolution": 512,
+        //         "maxLevel": 6,
+        //         "cubeResolution": 8432
+        //     }
+        // },
+
     }
 });
 }
