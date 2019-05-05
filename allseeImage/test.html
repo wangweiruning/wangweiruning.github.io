@@ -1,14 +1,16 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto rotate</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
     <link rel="stylesheet" href="https://cdn.pannellum.org/2.4/pannellum.css"/>
     
     <style>
     #panorama {
         width: '100%';
         height: '100%';
+        margin:0;
+        padding: 0;
     }
     </style>
 </head>
@@ -17,8 +19,9 @@
 <div id="panorama"></div>
 <script type="text/javascript" src="https://cdn.pannellum.org/2.4/pannellum.js"></script>
 <script>
+    //   runapp('https://pannellum.org/images/jfk.jpg')
     function runapp(url){
-        alert(url)
+        alert(url=='https://pannellum.org/images/jfk.jpg')
         pannellum.viewer('panorama', {
             "type": "equirectangular",
             "panorama":url,
@@ -26,7 +29,7 @@
             "autoLoad": true
         });
     }
-
+  
 </script>
 
 </body>
