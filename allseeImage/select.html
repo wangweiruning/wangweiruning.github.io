@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 	<title>手势</title>	
 	<style>
         html,body{
@@ -16,9 +16,9 @@
     </style>
 </head>
 <body>
-    <div style="position: relative;width: 100%;min-height:5rem;background-color: aqua">
+    <div style="position: relative;width: 100%;min-height:5rem;">
         <img id="imgView" class="viewerimg" draggable="true" 
-          src="http://39.98.230.127:7100/attachments/map/20190430/201904301651589982.svg" 
+          src="https://wangweiruning.github.io/201904221702294488.svg" 
           alt="平面施工图" title="智慧工地平面施工地图">
           <div id="alistd" style="width: 0.1rem;height: 0.1rem;position: absolute"></div>
     </div>
@@ -52,54 +52,6 @@ document.addEventListener('click',function(e){
    divss.style.top  =  oftop/fontSize+ 'rem';
    divss.style.left =  ofleft/fontSize+ 'rem';
     })
-
-    
-    target.style.webkitTransition = 'all ease 0.05s';
-
-    touch.on('#imgView', 'touchstart', function (ev) {
-        ev.preventDefault();
-    });
-
-    var initialScale = -10;
-    var currentScale;
-    var dx, dy;
-    touch.on('#imgView', 'pinchend', function (ev) {
-        if ($("#imgView").hasClass('viewerimg')) {
-            $("#imgView").removeClass("viewerimg");
-        };
-        currentScale = ev.scale - 1;
-        currentScale = initialScale + currentScale;
-        currentScale = currentScale > 2 ? 2 : currentScale;
-        currentScale = currentScale < 1 ? 1 : currentScale;
-        if (currentScale == 1) {
-            $("#imgView").addClass("viewerimg");
-        };
-        this.style.webkitTransform = 'scale(' + currentScale + ')';
-        console.log("当前缩放比例为:" + currentScale + ".");
-        
-    });
-
-    touch.on('#imgView', 'pinchend', function (ev) {
-        initialScale = currentScale;
-       
-    });
-
-    touch.on('#imgView', 'drag', function (ev) {
-        dx = dx || 0;
-        dy = dy || 0;
-        this.style.webkitTransform = 'scale(' + currentScale + ')';
-        console.log("当前x值为:" + dx + ", 当前y值为:" + dy + ".");
-        var offx = dx + ev.x + "px";
-        var offy = dy + ev.y + "px";
-        this.style.webkitTransform = "translate3d(" + offx + "," + offy + ",0)";
-    });
-
-    touch.on('#imgView', 'dragend', function (ev) {
-        dx += ev.x;
-        dy += ev.y;
-    });
-
-    
 </script>
 
 </html>
