@@ -16,9 +16,9 @@
     </style>
 </head>
 <body>
-    <div style="position: relative;width: 100%;height: auto">
+    <div style="position: relative;width: 100%;min-height:5rem;background-color: aqua">
         <img id="imgView" class="viewerimg" draggable="true" 
-          src="https://wangweiruning.github.io/201904221702294488.svg" 
+          src="http://39.98.230.127:7100/attachments/map/20190430/201904301651589982.svg" 
           alt="平面施工图" title="智慧工地平面施工地图">
           <div id="alistd" style="width: 0.1rem;height: 0.1rem;position: absolute"></div>
     </div>
@@ -28,12 +28,13 @@
     
 </body>
 <script>
-alert(111);
+alert(111111111)
 var psdWidth = 750;
     window.onresize = function(e) {
         var w = window.innerWidth || document.documentElement.clientWidth || document.body.offsetWidth;
         var fontSize = w * 100 / psdWidth;
         document.documentElement.style.fontSize = fontSize + 'px';
+    
     };
     window.onresize();
 
