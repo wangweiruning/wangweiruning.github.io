@@ -8,6 +8,8 @@
 	<style>
         html,body{
             font-size: 1rem;
+            margin:0;
+            padding:0;
         }
         .viewerimg {
             width: 40rem;
@@ -19,8 +21,8 @@
     <div style="position: relative;height:auto;width:40rem">
         <img id="imgView" class="viewerimg" draggable="true"
           src="https://wangweiruning.github.io/201904221702294488.svg" 
-          alt="平面施工图" title="智慧工地平面施工地图">
-          <div id="alistd" style="width: 0.1rem;height: 0.1rem;position: absolute"></div>
+          alt="平面施工图" title="智慧工地平面施工地图" />
+          <div id="alistd" style="width: 0.2rem;height: 0.2rem;position: absolute;border-radius: 50%"></div>
     </div>
         
    
@@ -43,14 +45,31 @@ var divss = document.getElementById("alistd");
 let oftop=0;
 let ofleft=0;
 document.addEventListener('click',function(e){
-   console.log(e)
         var w = window.innerWidth || document.documentElement.clientWidth || document.body.offsetWidth;
         var fontSize = w * 100 / psdWidth;
-    oftop=(e.layerY-10);
-    ofleft= (e.layerX-10);
-   divss.style.backgroundColor='red';
-   divss.style.top  =  oftop/fontSize+ 'rem';
-   divss.style.left =  ofleft/fontSize+ 'rem';
+            oftop=(e.layerY-10);
+            ofleft= (e.layerX-10);
+            
+            divss.style.backgroundColor='#000';
+            divss.style.top  =  oftop/fontSize+ 'rem';
+            divss.style.left =  ofleft/fontSize+ 'rem';
+        
+            //获取图片原始大小:NaturalWidth and NaturalHeight
+            let targetWidth  = target.naturalWidth;
+            let targetHeight = target.naturalHeight;
+ 
+            //offsetWidth  offsetHeight
+            let imgWidth = target.offsetWidth;
+            let imgHeight = target.offsetHeight;
+
+            //获取到相对的比例宽和高
+            getMatchofWidth = (ofleft/imgWidth)*targetWidth;
+            getMatchHeight  = (oftop/imgHeight)*targetHeight;
+      
+         console.log(getMatchofWidth,getMatchHeight)
+         let result = {getMatchofWidth,getMatchHeight};
+         console.log(result)
+         window.postMessage(JSON.stringify(result))
     })
 </script>
 
