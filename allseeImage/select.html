@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<title>手势</title>	
+	<style>
+        html,body{
+            font-size: 1rem;
+        }
+        .viewerimg {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div style="position: relative;width: 100%;height: auto">
+        <img id="imgView" class="viewerimg" draggable="true" 
+          src="http://39.98.230.127:7100/attachments/map/20190430/201904301651589982.svg" 
+          alt="平面施工图" title="智慧工地平面施工地图">
+          <div id="alistd" style="width: 0.1rem;height: 0.1rem;position: absolute"></div>
+    </div>
+        
+   
+    
+    
+</body>
+<script>
+
+var psdWidth = 750;
+    window.onresize = function(e) {
+        var w = window.innerWidth || document.documentElement.clientWidth || document.body.offsetWidth;
+        var fontSize = w * 100 / psdWidth;
+        document.documentElement.style.fontSize = fontSize + 'px';
+    };
+    window.onresize();
+
+var target = document.getElementById("imgView");
+var divss = document.getElementById("alistd");
+let oftop=0;
+let ofleft=0;
+document.addEventListener('click',function(e){
+   console.log(e)
+        var w = window.innerWidth || document.documentElement.clientWidth || document.body.offsetWidth;
+        var fontSize = w * 100 / psdWidth;
+    oftop=(e.layerY-10);
+    ofleft= (e.layerX-10);
+   divss.style.backgroundColor='red';
+   divss.style.top  =  oftop/fontSize+ 'rem';
+   divss.style.left =  ofleft/fontSize+ 'rem';
+    })
+
+    
+    target.style.webkitTransition = 'all ease 0.05s';
+
+    touch.on('#imgView', 'touchstart', function (ev) {
+        ev.preventDefault();
+    });
+
+    var initialScale = -10;
+    var currentScale;
+    var dx, dy;
+    touch.on('#imgView', 'pinchend', function (ev) {
+        if ($("#imgView").hasClass('viewerimg')) {
+            $("#imgView").removeClass("viewerimg");
+        };
+        currentScale = ev.scale - 1;
+        currentScale = initialScale + currentScale;
+        currentScale = currentScale > 2 ? 2 : currentScale;
+        currentScale = currentScale < 1 ? 1 : currentScale;
+        if (currentScale == 1) {
+            $("#imgView").addClass("viewerimg");
+        };
+        this.style.webkitTransform = 'scale(' + currentScale + ')';
+        console.log("当前缩放比例为:" + currentScale + ".");
+        
+    });
+
+    touch.on('#imgView', 'pinchend', function (ev) {
+        initialScale = currentScale;
+       
+    });
+
+    touch.on('#imgView', 'drag', function (ev) {
+        dx = dx || 0;
+        dy = dy || 0;
+        this.style.webkitTransform = 'scale(' + currentScale + ')';
+        console.log("当前x值为:" + dx + ", 当前y值为:" + dy + ".");
+        var offx = dx + ev.x + "px";
+        var offy = dy + ev.y + "px";
+        this.style.webkitTransform = "translate3d(" + offx + "," + offy + ",0)";
+    });
+
+    touch.on('#imgView', 'dragend', function (ev) {
+        dx += ev.x;
+        dy += ev.y;
+    });
+
+    
+</script>
+
+</html>
