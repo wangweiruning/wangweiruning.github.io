@@ -18,21 +18,24 @@
     </style>
 </head>
 <body>
-    <div style="position: relative;height:auto;width:40rem">
-        <img id="imgView" class="viewerimg" draggable="true"
-          alt="平面施工图" title="智慧工地平面施工地图" />
-          <div id="alistd" style="width: 0.2rem;height: 0.2rem;position: absolute;border-radius: 50%"></div>
+    <div style="position: relative;height:auto;width:40rem" id="containter">
+          
     </div>
         
   <script>
     // gopath('https://wangweiruning.github.io/201904221702294488.svg');
 function gopath(path){
-    var target = document.getElementById("imgView");
-    var divss = document.getElementById("alistd");
+    
+    var containter = document.getElementById("containter");
+
     let oftop=0;
     let ofleft=0;
-     target.src = path;
-var psdWidth = 750;
+     let images =  `'<img id="imgView" class="viewerimg" draggable="true" src="${path}" alt="平面施工图" title="智慧工地平面施工地图" />'`;
+        images  +=    '<div id="alistd" style="width: 0.2rem;height: 0.2rem;position: absolute;border-radius: 50%"></div>';
+        containter.innerHTML = images;
+    var target = document.getElementById("imgView");
+    var divss = document.getElementById("alistd");
+    var psdWidth = 750;
     window.onresize = function(e) {
         var w = window.innerWidth || document.documentElement.clientWidth || document.body.offsetWidth;
         var fontSize = w * 100 / psdWidth;
