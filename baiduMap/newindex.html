@@ -7,11 +7,12 @@
         #allmap{height:300px;width:100%;}
     </style>
     <title>城市名定位</title>
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=nNsj2hHmlQjt48iaOhGWGLl0TF5pOPRR"></script>
+
 </head>
 <body>
 <H3 id="textValue">景区地点</H3>
 <div id="allmap"></div>
-<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=nNsj2hHmlQjt48iaOhGWGLl0TF5pOPRR"></script>
 
 <script type="text/javascript">
     // 百度地图API功能
@@ -21,6 +22,7 @@
      var map = new BMap.Map("allmap");
          map.centerAndZoom(name,15);// 用城市名设置地图中心点
     }
+    runApp(1213213123,'北京')
 </script>
 </body>
 
