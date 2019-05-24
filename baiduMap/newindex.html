@@ -15,11 +15,19 @@
 <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=nNsj2hHmlQjt48iaOhGWGLl0TF5pOPRR"></script>
 <script type="text/javascript">
     // 百度地图API功能
+
     function runApp(name){
-    var textValue = document.getElementById('textValue');
-     var map = new BMap.Map("allmap");
-         map.centerAndZoom(name,10);// 用城市名设置地图中心点
-    }
+    	// 百度地图API功能
+	        var map = new BMap.Map("allmap");
+	    // 创建地址解析器实例
+	        var myGeo = new BMap.Geocoder();
+	    // 将地址解析结果显示在地图上,并调整地图视野
+	            myGeo.getPoint(name, function(point){//point当前坐标点
+                    map.centerAndZoom(point, 15);//设置坐标中心
+                    map.addOverlay(new BMap.Marker(point));//绘制坐标点
+	            });
+            }
+            // runApp('荔波小七孔');
 </script>
 </body>
 
