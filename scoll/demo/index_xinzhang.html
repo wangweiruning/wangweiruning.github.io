@@ -1,0 +1,388 @@
+<!--
+ * @Description: ******************0^0**********************
+ * @Author: wangwei
+ * @Date: 2019-06-17 14:15:27
+ * @LastEditTime: 2019-06-17 16:53:42
+ * @LastEditors: wagnwei
+ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>健康险-核保</title>
+    <link rel="stylesheet" href="style.css" />
+    
+    <style type="text/css">
+        div.pinch-zoom{
+            width: 190%;
+            -webkit-user-drag: none;
+        }
+        div.pinch-zoom-container{
+            height:600px !important;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- pinchzoom requires: jquery -->
+    <script type="text/javascript" src="../dependencies/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../src/pinchzoom.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('div.pinch-zoom').each(function () {
+                new RTP.PinchZoom($(this), {});
+            });
+            $("#gobacktoLast").on('click',function(){
+                window.history.back(-1);
+            })
+            
+
+        })
+
+    </script>
+</head>
+<body>
+    <div>
+        <img src="blueback.png" alt="" srcset="" class="backimg_go" id="gobacktoLast"/>
+        <h2 style="color:blueviolet">核保助手</h2>
+    </div>
+    <div class="page">
+        <div class="pinch-zoom">
+            <div id="container_img" style="width:200%;position:relative;top:0;height:60rem">
+                <div style="position:absolute;left:0;top:0;padding-top: 2rem">
+                    <img src='heart.png' width="30%" id="changeimg"/>
+                <div style="position:absolute;top:1.5rem;left:5.7rem">
+                        <svg width="556px" height="965px" viewBox="0 0 556 965" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+                            <title>心脏SVG</title>
+                            <desc>Created with Sketch.</desc>
+                            <g id="核保助手" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="核保助手-男-心脏" transform="translate(-149.000000, -92.000000)">
+                                    <g id="心脏SVG" transform="translate(149.000000, 92.000000)">
+                                        <circle id="椭圆形" fill="#3988FE" cx="6.5" cy="175.5" r="6.5"></circle>
+                                        <rect id="矩形" fill="#C4DCFF" x="131" y="0" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形" fill="#C4DCFF" x="131" y="60" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形" fill="#C4DCFF" x="131" y="120" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形" fill="#C4DCFF" x="131" y="180" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形" fill="#C4DCFF" x="131" y="240" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形" fill="#C4DCFF" x="131" y="300" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形" fill="#C4DCFF" x="131" y="360" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形" fill="#C4DCFF" x="131" y="420" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形" fill="#C4DCFF" x="131" y="480" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形备份-2" fill="#C4DCFF" x="131" y="539" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形备份-3" fill="#C4DCFF" x="131" y="598" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形备份-4" fill="#C4DCFF" x="131" y="658" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形备份-5" fill="#C4DCFF" x="131" y="718" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形备份-6" fill="#C4DCFF" x="131" y="778" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形备份-7" fill="#C4DCFF" x="131" y="854" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形备份-8" fill="#C4DCFF" x="131" y="924" width="140" height="40" rx="20"></rect>
+                                        <path d="M6.5,175.5 L69.0088854,175.5" id="路径-2" stroke="#3988FE"></path>
+                                        <path d="M69.0088854,79.5 L131.008885,79.5" id="路径-2备份" stroke="#3988FE"></path>
+                                        <path d="M69.0088854,140.5 L131.008885,140.5" id="路径-2备份-2" stroke="#3988FE"></path>
+                                        <path d="M69.0088854,200.5 L131.008885,200.5" id="路径-2备份-3" stroke="#3988FE"></path>
+                                        <path d="M69.0088854,260.5 L131.008885,260.5" id="路径-2备份-4" stroke="#3988FE"></path>
+                                        <path d="M69.0088854,322.5 L131.008885,322.5" id="路径-2备份-5" stroke="#3988FE"></path>
+                                        <path d="M69.0088854,380.5 L131.008885,380.5" id="路径-2备份-6" stroke="#3988FE"></path>
+                                        <path d="M69.0088854,440.5 L131.008885,440.5" id="路径-2备份-7" stroke="#3988FE"></path>
+                                        <path d="M69.0088854,500.5 L131.008885,500.5" id="路径-2备份-8" stroke="#3988FE"></path>
+                                        <path d="M69.0088854,559.5 L131.008885,559.5" id="路径-2备份-9" stroke="#3988FE"></path>
+                                        <path d="M69.0088854,620.5 L131.008885,620.5" id="路径-2备份-10" stroke="#3988FE"></path>
+                                        <path d="M69.0088854,678.5 L131.008885,678.5" id="路径-2备份-11" stroke="#3988FE"></path>
+                                        <path d="M69.0088854,738.5 L131.008885,738.5" id="路径-2备份-12" stroke="#3988FE"></path>
+                                        <path d="M69.0088854,800.5 L131.008885,800.5" id="路径-2备份-13" stroke="#3988FE"></path>
+                                        <path d="M69.0088854,874.5 L131.008885,874.5" id="路径-2备份-14" stroke="#3988FE"></path>
+                                        <text id="无症状心律失常" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="338" y="729">无症状心律失常</tspan>
+                                        </text>
+                                        <text id="痊愈超一年，心电图、心脏彩超检查正常，无" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="338" y="662">痊愈超一年，心电图、心脏</tspan>
+                                            <tspan x="338" y="674">彩超检查正常，无后遗症</tspan>
+                                        </text>
+                                        <text id="手术治疗，痊愈超半年，无后遗症" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="338" y="783">手术治疗，痊愈超半年，无</tspan>
+                                            <tspan x="338" y="795">后遗症</tspan>
+                                        </text>
+                                        <text id="有症状" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="338" y="758">有症状</tspan>
+                                        </text>
+                                        <text id="痊愈未满一年，心电图、心脏彩超检查异常，" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="338" y="694">痊愈未满一年，心电图、心脏</tspan>
+                                            <tspan x="338" y="706">彩超检查异常，有后遗症</tspan>
+                                        </text>
+                                        <text id="未手术，痊愈未超两年，有后遗症" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="338" y="815">未手术，痊愈未超两年，有</tspan>
+                                            <tspan x="338" y="827">后遗症</tspan>
+                                        </text>
+                                        <text id="原发性血压，且未经药物控制下收缩压&lt;15" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#000000">
+                                            <tspan x="338" y="936">原发性血压，且未经药物控制下</tspan>
+                                            <tspan x="338" y="950">收缩压&lt;150mmHg舒张压</tspan>
+                                            <tspan x="338" y="964">&lt;100mmHg，</tspan>
+                                        </text>
+                                        <path d="M132,20 L118,20 C90.3857625,20 68,42.3857625 68,70 L68,895 C68,922.614237 90.3857625,945 118,945 L132,945" id="路径-3" stroke="#3988FE"></path>
+                                        <path d="M333,723 C329.134007,723 326,726.134007 326,730 L326,746 C326,749.865993 329.134007,753 333,753 L333,753" id="路径-4备份-4" stroke="#3988FE"></path>
+                                        <path d="M333,663 C329.134007,663 326,666.134007 326,670 L326,686 C326,689.865993 329.134007,693 333,693 L333,693" id="路径-4备份-6" stroke="#3988FE"></path>
+                                        <path d="M333,784 C329.134007,784 326,787.134007 326,791 L326,807 C326,810.865993 329.134007,814 333,814 L333,814" id="路径-4备份-5" stroke="#3988FE"></path>
+                                        <path d="M271,19.75 L495.552387,19.75" id="路径-5备份-5" stroke="#3988FE"></path>
+                                        <path d="M271,259.75 L495.552387,259.75" id="路径-5备份-17" stroke="#3988FE"></path>
+                                        <path d="M271,79.75 L495.552387,79.75" id="路径-5备份-6" stroke="#3988FE"></path>
+                                        <path d="M271,319.75 L495.552387,319.75" id="路径-5备份-18" stroke="#3988FE"></path>
+                                        <path d="M271,139.75 L495.552387,139.75" id="路径-5备份-7" stroke="#3988FE"></path>
+                                        <path d="M271,379.75 L495.552387,379.75" id="路径-5备份-19" stroke="#3988FE"></path>
+                                        <path d="M271,199.75 L495.552387,199.75" id="路径-5备份-10" stroke="#3988FE"></path>
+                                        <path d="M271,439.75 L495.552387,439.75" id="路径-5备份-20" stroke="#3988FE"></path>
+                                        <path d="M271,500.75 L495.552387,500.75" id="路径-5备份-21" stroke="#3988FE"></path>
+                                        <path d="M271,559.75 L495.552387,559.75" id="路径-5备份-22" stroke="#3988FE"></path>
+                                        <path d="M271,618.75 L495.552387,618.75" id="路径-5备份-23" stroke="#3988FE"></path>
+                                        <path d="M271,737.75 L326,737.75" id="路径-5备份-29" stroke="#3988FE"></path>
+                                        <path d="M271,798.75 L326,798.75" id="路径-5备份-31" stroke="#3988FE"></path>
+                                        <path d="M271,677.75 L326,677.75" id="路径-5备份-27" stroke="#3988FE"></path>
+                                        <path d="M271,944.75 L333,944.75" id="路径-5备份-35" stroke="#3988FE"></path>
+                                        <path d="M414.739837,724.75 L495.834881,724.75" id="路径-5备份-11" stroke="#3988FE"></path>
+                                        <path d="M468.282494,784.75 L495.834881,784.75" id="路径-5备份-12" stroke="#3988FE"></path>
+                                        <path d="M468.282494,848.75 L495.834881,848.75" id="路径-5备份-13" stroke="#3988FE"></path>
+                                        <path d="M473.232048,663.75 L495.864366,663.75" id="路径-5备份-28" stroke="#3988FE"></path>
+                                        <path d="M473.232048,697.75 L495.864366,697.75" id="路径-5备份-37" stroke="#3988FE"></path>
+                                        <path d="M435.7358,902.75 L495.864366,902.75" id="路径-5备份-38" stroke="#3988FE"></path>
+                                        <path d="M375.636719,752.75 L495.834881,752.75" id="路径-5备份-30" stroke="#3988FE"></path>
+                                        <path d="M468.282494,815.75 L495.834881,815.75" id="路径-5备份-32" stroke="#3988FE"></path>
+                                        <path d="M468.282494,874.75 L495.834881,874.75" id="路径-5备份-34" stroke="#3988FE"></path>
+                                        <path d="M485,944.75 L495.834881,944.75" id="路径-5备份-36" stroke="#3988FE"></path>
+                                        <text id="谢绝承保" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="506" y="23">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="506" y="83">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-4" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="506" y="323">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-6" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="506" y="264">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-7" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="506" y="384">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-11" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="506" y="444">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-2" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="506" y="143">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-5" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="506" y="203">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-8" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="506" y="504">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-9" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="506" y="563">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-10" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="506" y="622">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-12" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="506" y="702">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-14" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="506" y="907">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-13" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="506" y="757">谢绝承保</tspan>
+                                        </text>
+                                        <text id="条件承保" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#075FE3">
+                                            <tspan x="506" y="729">条件承保</tspan>
+                                        </text>
+                                        <text id="条件承保" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#075FE3">
+                                            <tspan x="506" y="820">条件承保</tspan>
+                                        </text>
+                                        <text id="条件承保" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#075FE3">
+                                            <tspan x="506" y="879">条件承保</tspan>
+                                        </text>
+                                        <text id="条件承保" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#075FE3">
+                                            <tspan x="506" y="949">条件承保</tspan>
+                                        </text>
+                                        <text id="标准体承保" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#075FE3">
+                                            <tspan x="506" y="788">标准体承保</tspan>
+                                        </text>
+                                        <text id="标准体承保备份" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#075FE3">
+                                            <tspan x="506" y="852">标准体承保</tspan>
+                                        </text>
+                                        <text id="标准体承保备份-2" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#075FE3">
+                                            <tspan x="506" y="667">标准体承保</tspan>
+                                        </text>
+                                        <g id="编组" transform="translate(171.000000, 11.000000)" fill="#000000" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal">
+                                            <text id="肺">
+                                                <tspan x="0" y="13.8671875">肺</tspan>
+                                            </text>
+                                            <text id="动">
+                                                <tspan x="12" y="13.8671875">动</tspan>
+                                            </text>
+                                            <text id="脉高">
+                                                <tspan x="24" y="13.8671875">脉高</tspan>
+                                            </text>
+                                            <text id="压">
+                                                <tspan x="48" y="13.8671875">压</tspan>
+                                            </text>
+                                        </g>
+                                        <g id="编组" transform="translate(171.000000, 72.000000)" fill="#000000" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal">
+                                            <text id="主">
+                                                <tspan x="0" y="13.8671875">主</tspan>
+                                            </text>
+                                            <text id="动">
+                                                <tspan x="12" y="13.8671875">动</tspan>
+                                            </text>
+                                            <text id="脉疾病">
+                                                <tspan x="24" y="13.8671875">脉疾病</tspan>
+                                            </text>
+                                        </g>
+                                        <text id="室壁瘤" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                                            <tspan x="183" y="144">室壁瘤</tspan>
+                                        </text>
+                                        <g id="编组" transform="translate(158.000000, 191.000000)" fill="#000000" font-size="12" font-weight="normal">
+                                            <text id="Brugada" font-family="LucidaGrande, Lucida Grande" letter-spacing="0.0393">
+                                                <tspan x="0" y="12.8671875">B</tspan>
+                                                <tspan x="6.94164375" y="12.8671875" letter-spacing="-0.6207">r</tspan>
+                                                <tspan x="11.2311" y="12.8671875" letter-spacing="-0.7287">u</tspan>
+                                                <tspan x="17.9496656" y="12.8671875" letter-spacing="-0.0807">g</tspan>
+                                                <tspan x="25.3513875" y="12.8671875" letter-spacing="-0.1767">a</tspan>
+                                                <tspan x="31.8016406" y="12.8671875" letter-spacing="-0.7287">d</tspan>
+                                                <tspan x="38.625675" y="12.8671875">a</tspan>
+                                            </text>
+                                            <text id="综合征" font-family="PingFangSC-Regular, PingFang SC">
+                                                <tspan x="48" y="13.8671875">综合征</tspan>
+                                            </text>
+                                        </g>
+                                        <text id="心肌病" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                                            <tspan x="182" y="265">心肌病</tspan>
+                                        </text>
+                                        <g id="编组" transform="translate(164.000000, 311.000000)" fill="#000000" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal">
+                                            <text id="心">
+                                                <tspan x="0" y="13.8671875">心</tspan>
+                                            </text>
+                                            <text id="脏">
+                                                <tspan x="12" y="13.8671875">脏</tspan>
+                                            </text>
+                                            <text id="瓣膜疾病">
+                                                <tspan x="24" y="13.8671875">瓣膜疾病</tspan>
+                                            </text>
+                                        </g>
+                                        <text id="心包疾病" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                                            <tspan x="176" y="385">心包疾病</tspan>
+                                        </text>
+                                        <g id="编组" transform="translate(152.000000, 431.000000)" fill="#000000" font-size="12" font-weight="normal">
+                                            <text id="Ⅲ度房室" font-family="LucidaGrande, Lucida Grande">
+                                                <tspan x="0" y="12.8671875">Ⅲ</tspan>
+                                                <tspan x="10.0488281" y="12.8671875" font-family="PingFangSC-Regular, PingFang SC">度房室</tspan>
+                                            </text>
+                                            <text id="传导" font-family="PingFangSC-Regular, PingFang SC">
+                                                <tspan x="48" y="13.8671875">传导</tspan>
+                                            </text>
+                                            <text id="阻滞" font-family="PingFangSC-Regular, PingFang SC">
+                                                <tspan x="72" y="13.8671875">阻滞</tspan>
+                                            </text>
+                                        </g>
+                                        <text id="心功能不全" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                                            <tspan x="170" y="505">心功能不全</tspan>
+                                        </text>
+                                        <g id="编组" transform="translate(176.000000, 550.000000)" fill="#000000" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal">
+                                            <text id="大">
+                                                <tspan x="0" y="13.8671875">大</tspan>
+                                            </text>
+                                            <text id="动">
+                                                <tspan x="12" y="13.8671875">动</tspan>
+                                            </text>
+                                            <text id="脉炎">
+                                                <tspan x="24" y="13.8671875">脉炎</tspan>
+                                            </text>
+                                        </g>
+                                        <g id="编组" transform="translate(176.000000, 935.000000)" fill="#000000" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal">
+                                            <text id="高血">
+                                                <tspan x="0" y="13.8671875">高血</tspan>
+                                            </text>
+                                            <text id="压">
+                                                <tspan x="24" y="13.8671875">压</tspan>
+                                            </text>
+                                            <text id="病">
+                                                <tspan x="36" y="13.8671875">病</tspan>
+                                            </text>
+                                        </g>
+                                        <text id="心肌炎" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                                            <tspan x="182" y="683">心肌炎</tspan>
+                                        </text>
+                                        <text id="心律失常" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                                            <tspan x="177" y="742">心律失常</tspan>
+                                        </text>
+                                        <g id="编组" transform="translate(164.000000, 789.000000)" fill="#000000" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal">
+                                            <text id="下肢静脉曲">
+                                                <tspan x="0" y="13.8671875">下肢静脉曲</tspan>
+                                            </text>
+                                            <text id="张">
+                                                <tspan x="60" y="13.8671875">张</tspan>
+                                            </text>
+                                        </g>
+                                        <g id="编组" transform="translate(164.000000, 864.000000)" fill="#000000" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal">
+                                            <text id="精索静脉曲">
+                                                <tspan x="0" y="13.8671875">精索静脉曲</tspan>
+                                            </text>
+                                            <text id="张">
+                                                <tspan x="60" y="13.8671875">张</tspan>
+                                            </text>
+                                        </g>
+                                        <text id="房间隔缺损-（先天性心脏病）" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                                            <tspan x="171" y="612">房间隔缺损</tspan>
+                                            <tspan x="153" y="629">（先天性心脏病）</tspan>
+                                        </text>
+                                        <text id="原发性精索静脉曲张，手术治疗，痊愈超一年" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="338" y="846">原发性精索静脉曲张，手术治</tspan>
+                                            <tspan x="338" y="858">疗，痊愈超一年，无后遗症</tspan>
+                                        </text>
+                                        <text id="原发性精索静脉曲张，未手术治疗" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="338" y="875">原发性精索静脉曲张，未手</tspan>
+                                            <tspan x="338" y="887">术治疗</tspan>
+                                        </text>
+                                        <text id="继发性精索静脉曲张" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="338" y="907">继发性精索静脉曲张</tspan>
+                                        </text>
+                                        <path d="M333,848 C329.134007,848 326,851.134007 326,855 L326,895 C326,898.865993 329.134007,902 333,902 L333,902" id="路径-4备份-6" stroke="#3988FE"></path>
+                                        <path d="M271,874.75 L326,874.75" id="路径-5备份-37" stroke="#3988FE"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                </div>
+            </div>
+            <p style="position:absolute;bottom:-4rem;text-align:center;padding-left:8rem;font-size:0.6rem;color:#000">注：条件承保需以客户疾病的具体情况而定，详情请参考具体保险合同条款。若需进一步咨询，请点击“答疑解惑”提问。</p>
+        </div>
+           
+        </div>
+    </div>
+    <div id="mengban" style="width: 100%;height: 100%;position: fixed;top:0;left:0;background-color: #000;opacity: 0.8;">
+            <div>
+                <img src="movehandle.png" alt="" class="handleimg" style="position: absolute;top: 5rem;left: 2rem;width: 5rem" />
+                <p style="position: absolute;top: 12rem;left: 4rem;color: #FFF">上下左右滑动查看，双击放大查看</p>
+            </div>
+        </div>
+        <script src="../src/click.js"></script>
+    <script>
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if ( r != null ){
+               return unescape(r[2]);
+            }else{
+               return null;
+            } 
+         }
+        
+         let type = getQueryString('type');
+         let changeimg = $("#changeimg");
+        if(type==1){
+            changeimg.attr('src','heart.png'); 
+        }else{
+            changeimg.attr('src','muman_heart.png'); 
+            changeimg.css("width", '33%');
+        }
+        </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!--
+ * @Description: ******************0^0**********************
+ * @Author: wangwei
+ * @Date: 2019-06-17 14:15:27
+ * @LastEditTime: 2019-06-17 16:54:02
+ * @LastEditors: wagnwei
+ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>健康险-核保</title>
+    <link rel="stylesheet" href="style.css" />
+    
+    <style type="text/css">
+        div.pinch-zoom{
+            width: 190%;
+            -webkit-user-drag: none;
+        }
+        div.pinch-zoom-container{
+            height:600px !important;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- pinchzoom requires: jquery -->
+    <script type="text/javascript" src="../dependencies/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../src/pinchzoom.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('div.pinch-zoom').each(function () {
+                new RTP.PinchZoom($(this), {});
+            });
+            $("#gobacktoLast").on('click',function(){
+                window.history.back(-1);
+            })
+            
+
+        })
+
+    </script>
+</head>
+<body>
+    <div>
+        <img src="blueback.png" alt="" srcset="" class="backimg_go" id="gobacktoLast"/>
+        <h2 style="color:blueviolet">核保助手</h2>
+    </div>
+    <div class="page">
+        <div class="pinch-zoom">
+            <div id="container_img" style="width:200%;position:relative;top:0;height:60rem">
+                <div style="position:absolute;left:0;top:0">
+                    <img src='man_normal.png' width="30%" id="changeimg"/>
+                <div id="xintian" style="position:absolute;top:2.2rem;left:6.7rem">
+                        <svg width="527px" height="161px" viewBox="0 0 527 161" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+                            <title>先天遗传</title>
+                            <desc>Created with Sketch.</desc>
+                            <g id="核保助手" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="核保助手-男-先天遗传" transform="translate(-168.000000, -131.000000)">
+                                    <g id="先天遗传" transform="translate(168.000000, 131.000000)">
+                                        <circle id="椭圆形" fill="#3988FE" cx="6.5" cy="87.5" r="6.5"></circle>
+                                        <rect id="矩形" fill="#C4DCFF" x="112" y="0" width="140" height="40" rx="20"></rect>
+                                        <path d="M252,19.75 L476.552387,19.75" id="路径-5备份-5" stroke="#3988FE"></path>
+                                        <path d="M252,140.75 L476.552387,140.75" id="路径-5备份-6" stroke="#3988FE"></path>
+                                        <text id="谢绝承保备份" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="487" y="24">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-4" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="487" y="145">谢绝承保</tspan>
+                                        </text>
+                                        <rect id="矩形备份-2" fill="#C4DCFF" x="112" y="121" width="140" height="40" rx="20"></rect>
+                                        <path d="M6.5,88.5 L50.0088854,88.5" id="路径-2" stroke="#3988FE"></path>
+                                        <path d="M113,20 L99,20 C71.3857625,20 49,42.3857625 49,70 L49,91 C49,118.614237 71.3857625,141 99,141 L113,141" id="路径-3" stroke="#3988FE"></path>
+                                        <g id="编组" transform="translate(151.000000, 11.000000)" fill="#000000" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal">
+                                            <text id="先天性疾病">
+                                                <tspan x="0" y="13.8671875">先天性疾病</tspan>
+                                            </text>
+                                        </g>
+                                        <text id="遗传性疾病" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                                            <tspan x="151" y="145">遗传性疾病</tspan>
+                                        </text>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                </div>
+            </div>
+            <p style="position:absolute;bottom:24rem;text-align:center;padding-left:8rem;font-size:0.6rem;color:#000">注：条件承保需以客户疾病的具体情况而定，详情请参考具体保险合同条款。若需进一步咨询，请点击“答疑解惑”提问。</p>
+        </div>
+           
+        </div>
+    </div>
+    <div id="mengban" style="width: 100%;height: 100%;position: fixed;top:0;left:0;background-color: #000;opacity: 0.8;">
+            <div>
+                <img src="movehandle.png" alt="" class="handleimg" style="position: absolute;top: 5rem;left: 2rem;width: 5rem" />
+                <p style="position: absolute;top: 12rem;left: 4rem;color: #FFF">上下左右滑动查看，双击放大查看</p>
+            </div>
+        </div>
+        <script src="../src/click.js"></script>
+    <script>
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if ( r != null ){
+               return unescape(r[2]);
+            }else{
+               return null;
+            } 
+         }
+        
+         let type = getQueryString('type');
+         let changeimg = $("#changeimg");
+        if(type==1){
+            changeimg.attr('src','man_normal.png'); 
+        }else{
+            changeimg.attr('src','woman.png'); 
+            changeimg.css("width", '33%');
+            $("#xintian").css("top", '2.8rem');
+
+        }
+        </script>
+</body>
+</html>

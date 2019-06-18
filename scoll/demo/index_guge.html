@@ -1,0 +1,192 @@
+<!--
+ * @Description: ******************0^0**********************
+ * @Author: wangwei
+ * @Date: 2019-06-17 14:15:27
+ * @LastEditTime: 2019-06-17 16:55:33
+ * @LastEditors: wagnwei
+ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>健康险-核保</title>
+    <link rel="stylesheet" href="style.css" />
+    
+    <style type="text/css">
+        div.pinch-zoom{
+            width: 190%;
+            -webkit-user-drag: none;
+        }
+        div.pinch-zoom-container{
+            height:600px !important;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- pinchzoom requires: jquery -->
+    <script type="text/javascript" src="../dependencies/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../src/pinchzoom.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('div.pinch-zoom').each(function () {
+                new RTP.PinchZoom($(this), {});
+            });
+            $("#gobacktoLast").on('click',function(){
+                window.history.back(-1);
+            })
+            
+
+        })
+
+    </script>
+</head>
+<body>
+    <div>
+        <img src="blueback.png" alt="" srcset="" class="backimg_go" id="gobacktoLast"/>
+        <h2 style="color:blueviolet">核保助手</h2>
+    </div>
+    <div class="page">
+        <div class="pinch-zoom">
+            <div id="container_img" style="width:200%;position:relative;top:0;height:60rem">
+                <div style="position:absolute;left:0;top:0;padding-top: 2rem">
+                    <img src='man_guge.png' width="30%" id="changeimg"/>
+                <div id="box_imgs" style="position:absolute;top:0.5rem;left:5.7rem">
+                        <svg width="527px" height="265px" viewBox="0 0 527 265" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+                            <title>骨骼svg</title>
+                            <desc>Created with Sketch.</desc>
+                            <g id="核保助手" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="核保助手-男-骨骼" transform="translate(-168.000000, -73.000000)">
+                                    <g id="骨骼svg" transform="translate(168.000000, 72.000000)">
+                                        <circle id="椭圆形" fill="#3988FE" cx="6.5" cy="146.5" r="6.5"></circle>
+                                        <rect id="矩形" fill="#C4DCFF" x="112" y="20" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形备份-2" fill="#C4DCFF" x="112" y="100" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形" fill="#C4DCFF" x="112" y="191" width="140" height="40" rx="20"></rect>
+                                        <text id="腰椎间盘突出症-（包括腰椎间盘膨出）" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                                            <tspan x="140" y="207">腰椎间盘突出症</tspan>
+                                            <tspan x="122" y="224">（包括腰椎间盘膨出）</tspan>
+                                        </text>
+                                        <path d="M6.5,147.5 L50.0088854,147.5" id="路径-2" stroke="#3988FE"></path>
+                                        <path d="M50.0088854,121 L112.008885,121" id="路径-2备份-3" stroke="#3988FE"></path>
+                                        <path d="M113,40 L99,40 C71.3857625,40 49,62.3857625 49,90 L49,161 C49,188.614237 71.3857625,211 99,211 L113,211" id="路径-3" stroke="#3988FE"></path>
+                                        <text id="颈椎病" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                                            <tspan x="164" y="125">颈椎病</tspan>
+                                        </text>
+                                        <g id="编组" transform="translate(164.000000, 31.000000)" fill="#000000" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal">
+                                            <text id="关">
+                                                <tspan x="0" y="13.8671875">关</tspan>
+                                            </text>
+                                            <text id="节">
+                                                <tspan x="12" y="13.8671875">节</tspan>
+                                            </text>
+                                            <text id="炎">
+                                                <tspan x="24" y="13.8671875">炎</tspan>
+                                            </text>
+                                        </g>
+                                        <text id="条件承保" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#075FE3">
+                                            <tspan x="487" y="24">条件承保</tspan>
+                                        </text>
+                                        <text id="条件承保" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#075FE3">
+                                            <tspan x="487" y="112">条件承保</tspan>
+                                        </text>
+                                        <text id="条件承保" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#075FE3">
+                                            <tspan x="487" y="247">条件承保</tspan>
+                                        </text>
+                                        <text id="单纯骨性关节炎，无有骨坏死、关节变形或者" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="319" y="11">单纯骨性关节炎，无有骨</tspan>
+                                            <tspan x="319" y="23">坏死、关节变形或者活动</tspan>
+                                            <tspan x="319" y="35">障碍，无需手术治疗</tspan>
+                                        </text>
+                                        <text id="出现以下任何一项：足下垂、下肢痉挛性轻瘫" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="319" y="174">出现以下任何一项：足下</tspan>
+                                            <tspan x="319" y="186">垂、下肢痉挛性轻瘫、马</tspan>
+                                            <tspan x="319" y="198">尾神经受压致尿潴留、尿</tspan>
+                                            <tspan x="319" y="210">失禁、瘫痪、肌肉萎缩</tspan>
+                                        </text>
+                                        <text id="非单纯骨性关节炎，合并骨坏死，合并关节变" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="319" y="55">非单纯骨性关节炎，合并</tspan>
+                                            <tspan x="319" y="67">骨坏死，合并关节变形或</tspan>
+                                            <tspan x="319" y="79">活动障碍，需要手术治疗</tspan>
+                                        </text>
+                                        <text id="未出现以下任何一项：足下垂、下肢痉挛性轻" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="319" y="230">未出现以下任何一项：足</tspan>
+                                            <tspan x="319" y="242">下垂、下肢痉挛性轻瘫、</tspan>
+                                            <tspan x="319" y="254">马尾神经受压致尿潴留、</tspan>
+                                            <tspan x="319" y="266">尿失禁、瘫痪、肌肉萎缩</tspan>
+                                        </text>
+                                        <path d="M314,10 C310.134007,10 307,13.1340068 307,17 L307,57 C307,60.8659932 310.134007,64 314,64 L314,64" id="路径-4备份-6" stroke="#3988FE"></path>
+                                        <path d="M314,173 C310.134007,173 307,176.134007 307,180 L307,236 C307,239.865993 310.134007,243 314,243 L314,243" id="路径-4备份-7" stroke="#3988FE"></path>
+                                        <path d="M252,39.75 L307,39.75" id="路径-5备份-27" stroke="#3988FE"></path>
+                                        <path d="M252,210.75 L307,210.75" id="路径-5备份-29" stroke="#3988FE"></path>
+                                        <path d="M252,119.75 L307,119.75" id="路径-5备份-28" stroke="#3988FE"></path>
+                                        <path d="M438,19.75 L476.823086,19.75" id="路径-5备份-42" stroke="#3988FE"></path>
+                                        <path d="M438,107.75 L476.823086,107.75" id="路径-5备份-44" stroke="#3988FE"></path>
+                                        <path d="M438,188.75 L476.823086,188.75" id="路径-5备份-46" stroke="#3988FE"></path>
+                                        <path d="M438,61.75 L476.823086,61.75" id="路径-5备份-43" stroke="#3988FE"></path>
+                                        <path d="M438,134.75 L476.823086,134.75" id="路径-5备份-45" stroke="#3988FE"></path>
+                                        <path d="M438,242.75 L476.823086,242.75" id="路径-5备份-47" stroke="#3988FE"></path>
+                                        <text id="谢绝承保备份" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="487" y="66">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-2" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="487" y="139">谢绝承保</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份-3" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="487" y="193">谢绝承保</tspan>
+                                        </text>
+                                        <text id="非脊髓型、非椎动脉型、非食管压迫型颈椎病" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="319" y="106">非脊髓型、非椎动脉型、</tspan>
+                                            <tspan x="319" y="118">非食管压迫型颈椎病</tspan>
+                                        </text>
+                                        <text id="脊髓型、椎动脉型、食管压迫型颈椎病" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="319" y="134">脊髓型、椎动脉型、食管</tspan>
+                                            <tspan x="319" y="146">压迫型颈椎病</tspan>
+                                        </text>
+                                        <path d="M314,105 C310.134007,105 307,108.134007 307,112 L307,128 C307,131.865993 310.134007,135 314,135 L314,135" id="路径-4备份-6" stroke="#3988FE"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                </div>
+            </div>
+            <p style="position:absolute;bottom:20rem;text-align:center;padding-left:8rem;font-size:0.6rem;color:#000">注：条件承保需以客户疾病的具体情况而定，详情请参考具体保险合同条款。若需进一步咨询，请点击“答疑解惑”提问。</p>
+        </div>
+           
+        </div>
+    </div>
+
+    <div id="mengban" style="width: 100%;height: 100%;position: fixed;top:0;left:0;background-color: #000;opacity: 0.8;">
+            <div>
+                <img src="movehandle.png" alt="" class="handleimg" style="position: absolute;top: 5rem;left: 2rem;width: 5rem" />
+                <p style="position: absolute;top: 12rem;left: 4rem;color: #FFF">上下左右滑动查看，双击放大查看</p>
+            </div>
+        </div>
+        <script src="../src/click.js"></script>
+    <script>
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if ( r != null ){
+               return unescape(r[2]);
+            }else{
+               return null;
+            } 
+         }
+        
+         let type = getQueryString('type');
+         let changeimg = $("#changeimg");
+        if(type==1){
+            changeimg.attr('src','man_guge.png'); 
+        }else{
+            changeimg.attr('src','wuman_guge.png'); 
+            changeimg.css("width", '33%');
+            $("#box_imgs").css({
+                "top": '0.8rem',
+                "left":'5.7rem'
+            });
+        }
+        </script>
+</body>
+</html>

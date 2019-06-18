@@ -1,0 +1,165 @@
+<!--
+ * @Description: ******************0^0**********************
+ * @Author: wangwei
+ * @Date: 2019-06-17 14:15:27
+ * @LastEditTime: 2019-06-17 16:55:16
+ * @LastEditors: wagnwei
+ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>健康险-核保</title>
+    <link rel="stylesheet" href="style.css" />
+    
+    <style type="text/css">
+        div.pinch-zoom{
+            width: 190%;
+            -webkit-user-drag: none;
+        }
+        div.pinch-zoom-container{
+            height:600px !important;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- pinchzoom requires: jquery -->
+    <script type="text/javascript" src="../dependencies/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../src/pinchzoom.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('div.pinch-zoom').each(function () {
+                new RTP.PinchZoom($(this), {});
+            });
+            $("#gobacktoLast").on('click',function(){
+                window.history.back(-1);
+            })
+            
+
+        })
+
+    </script>
+</head>
+<body>
+    <div>
+        <img src="blueback.png" alt="" srcset="" class="backimg_go" id="gobacktoLast"/>
+        <h2 style="color:blueviolet">核保助手</h2>
+    </div>
+    <div class="page">
+        <div class="pinch-zoom">
+            <div id="container_img" style="width:200%;position:relative;top:0;height:60rem">
+                <div style="position:absolute;left:0;top:0">
+                    <img src='man_miniao.png' width="30%"  id="changeimg"/>
+                <div style="position:absolute;top:-0.8rem;left:4.7rem;padding-top: 1rem">
+                        <svg width="570px" height="263px" viewBox="0 0 570 263" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+                            <title>泌尿系统SVG</title>
+                            <desc>Created with Sketch.</desc>
+                            <g id="核保助手" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="核保助手-男-泌尿系统" transform="translate(-135.000000, -92.000000)">
+                                    <g id="泌尿系统SVG" transform="translate(135.000000, 92.000000)">
+                                        <circle id="椭圆形" fill="#3988FE" cx="6.5" cy="256.5" r="6.5"></circle>
+                                        <rect id="矩形" fill="#C4DCFF" x="145" y="0" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形" fill="#C4DCFF" x="145" y="60" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形" fill="#C4DCFF" x="145" y="120" width="140" height="40" rx="20"></rect>
+                                        <rect id="矩形" fill="#C4DCFF" x="145" y="180" width="140" height="40" rx="20"></rect>
+                                        <path d="M83.0088854,79.5 L145.008885,79.5" id="路径-2备份" stroke="#3988FE"></path>
+                                        <path d="M83.0088854,140.5 L145.008885,140.5" id="路径-2备份-2" stroke="#3988FE"></path>
+                                        <path d="M146,20 L132,20 C104.385763,20 82,42.3857625 82,70 L82,150 C82,177.614237 104.385763,200 132,200 L146,200" id="路径-3" stroke="#3988FE"></path>
+                                        <path d="M285,19.75 L509.552387,19.75" id="路径-5备份-5" stroke="#3988FE"></path>
+                                        <path d="M285,79.75 L509.552387,79.75" id="路径-5备份-6" stroke="#3988FE"></path>
+                                        <text id="肾髓质囊性病" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                                            <tspan x="179" y="23">肾髓质囊性病</tspan>
+                                        </text>
+                                        <text id="前列腺增生（肥大）" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                                            <tspan x="164" y="84">前列腺增生（肥大）</tspan>
+                                        </text>
+                                        <text id="肾、输尿管结石" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                                            <tspan x="173" y="144">肾、输尿管结石</tspan>
+                                        </text>
+                                        <text id="尿路感染" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                                            <tspan x="191" y="204">尿路感染</tspan>
+                                        </text>
+                                        <text id="谢绝承保备份" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="520" y="24">谢绝承保</tspan>
+                                        </text>
+                                        <text id="条件承保" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#075FE3">
+                                            <tspan x="520" y="83">条件承保</tspan>
+                                        </text>
+                                        <text id="条件承保" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#075FE3">
+                                            <tspan x="520" y="127">条件承保</tspan>
+                                        </text>
+                                        <text id="条件承保" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#075FE3">
+                                            <tspan x="520" y="220">条件承保</tspan>
+                                        </text>
+                                        <text id="肾功能正常" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="352" y="131">肾功能正常</tspan>
+                                        </text>
+                                        <text id="肾功能异常" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="352" y="161">肾功能异常</tspan>
+                                        </text>
+                                        <path d="M347,126 C343.134007,126 340,129.134007 340,133 L340,149 C340,152.865993 343.134007,156 347,156 L347,156" id="路径-4备份-6" stroke="#3988FE"></path>
+                                        <path d="M285,140.75 L340,140.75" id="路径-5备份-27" stroke="#3988FE"></path>
+                                        <path d="M409,126.75 L509.541839,126.75" id="路径-5备份-41" stroke="#3988FE"></path>
+                                        <path d="M409,155.75 L509.541839,155.75" id="路径-5备份-42" stroke="#3988FE"></path>
+                                        <text id="谢绝承保备份-6" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#E61212">
+                                            <tspan x="520" y="160">谢绝承保</tspan>
+                                        </text>
+                                        <text id="痊愈超半年，尿常规、肾功能、泌尿系B超正" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="352" y="187">痊愈超半年，尿常规、肾</tspan>
+                                            <tspan x="352" y="199">功能、泌尿系B超正常</tspan>
+                                        </text>
+                                        <text id="痊愈未满半年，尿常规、肾功能、泌尿系B超" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="12" fill="#000000">
+                                            <tspan x="352" y="215">痊愈未满半年，尿常规、</tspan>
+                                            <tspan x="352" y="227">肾功能、泌尿系B超不正常</tspan>
+                                        </text>
+                                        <path d="M347,186 C343.134007,186 340,189.134007 340,193 L340,209 C340,212.865993 343.134007,216 347,216 L347,216" id="路径-4备份-6" stroke="#3988FE"></path>
+                                        <path d="M285,200.75 L340,200.75" id="路径-5备份-27" stroke="#3988FE"></path>
+                                        <path d="M471,182.75 L509.823086,182.75" id="路径-5备份-41" stroke="#3988FE"></path>
+                                        <path d="M471,215.75 L509.823086,215.75" id="路径-5备份-42" stroke="#3988FE"></path>
+                                        <text id="标准体承保备份-5" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#075FE3">
+                                            <tspan x="520" y="187">标准体承保</tspan>
+                                        </text>
+                                        <path d="M82,116.480222 L57,116.480222 C29.3857625,116.480222 7,138.865984 7,166.480222 L7,260.480222" id="路径-6" stroke="#3988FE"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                </div>
+            </div>
+            <p style="position:absolute;bottom:24rem;text-align:center;padding-left:8rem;font-size:0.6rem;color:#000">注：条件承保需以客户疾病的具体情况而定，详情请参考具体保险合同条款。若需进一步咨询，请点击“答疑解惑”提问。</p>
+        </div>
+           
+        </div>
+    </div>
+    <div id="mengban" style="width: 100%;height: 100%;position: fixed;top:0;left:0;background-color: #000;opacity: 0.8;">
+            <div>
+                <img src="movehandle.png" alt="" class="handleimg" style="position: absolute;top: 5rem;left: 2rem;width: 5rem" />
+                <p style="position: absolute;top: 12rem;left: 4rem;color: #FFF">上下左右滑动查看，双击放大查看</p>
+            </div>
+        </div>
+        <script src="../src/click.js"></script>
+    <script>
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if ( r != null ){
+               return unescape(r[2]);
+            }else{
+               return null;
+            } 
+         }
+        
+         let type = getQueryString('type');
+         let changeimg = $("#changeimg");
+        if(type==1){
+            changeimg.attr('src','man_miniao.png'); 
+        }else{
+            changeimg.attr('src','wuman_miniao.png'); 
+            changeimg.css("width", '33%');
+        }
+        </script>
+</body>
+</html>
