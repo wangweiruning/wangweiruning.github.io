@@ -1,33 +1,98 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <style type="text/css">
-        body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
-        #allmap{height:300px;width:100%;}
+        body, html{width: 100%;height: 100%; margin:0;font-family:"微软雅黑";}
+        #l-map{height:300px;width:100%;float:left;}
+        #r-result{width:20%;}
     </style>
-    <title>城市名定位</title>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=nNsj2hHmlQjt48iaOhGWGLl0TF5pOPRR"></script>
+    <title>拾取地址的坐标</title>
 </head>
 <body>
-<div id="allmap"></div>
-<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=nNsj2hHmlQjt48iaOhGWGLl0TF5pOPRR"></script>
-<script type="text/javascript">
-    // 百度地图API功能
-
-    function runApp(name){
-    	// 百度地图API功能
-	        var map = new BMap.Map("allmap");
-	    // 创建地址解析器实例
-	        var myGeo = new BMap.Geocoder();
-	    // 将地址解析结果显示在地图上,并调整地图视野
-	            myGeo.getPoint(name, function(point){//point当前坐标点
-                    map.centerAndZoom(point, 15);//设置坐标中心
-                    map.addOverlay(new BMap.Marker(point));//绘制坐标点
-	            });
-            }
-            // runApp('荔波小七孔');
-</script>
+    <div id="l-map"></div>
 </body>
-
 </html>
+<script type="text/javascript">
+
+function runApp(name){
+    // 百度地图API功能
+    map = new BMap.Map("l-map");            // 创建Map实例
+    map.centerAndZoom("{$address}", 12);
+    map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+    map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+    map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+    map.addControl(new BMap.OverviewMapControl()); //添加默认缩略地图控件
+    map.addControl(new BMap.OverviewMapControl({ isOpen: true, anchor: BMAP_ANCHOR_BOTTOM_RIGHT }));   //右下角，打开
+ 
+    local = new BMap.LocalSearch(map, {
+        renderOptions: {map:map,autoViewport:true,selectFirstResult:false},
+        pageCapacity:10
+    });
+ 
+    myIcon = new BMap.Icon("https://api.map.baidu.com/img/markers.png", new BMap.Size(23, 25), {
+                    offset: new BMap.Size(10, 25),
+                    imageOffset: new BMap.Size(0, 0 - 10 * 25)
+                });
+ 
+    
+    var keys = new Array("{$address}");
+ 
+    local.setSearchCompleteCallback(function (searchResults) {
+            console.log(searchResults);
+            if (typeof(searchResults) == "undefined" ) {
+                alert("百度API没有搜索到该地址");
+                return;
+            }
+            if(searchResults.length>0) {
+                var searchResult = searchResults[0];
+            }else {
+                var searchResult = searchResults;
+            }
+            
+            console.log(searchResult);
+            
+            var contents = [];
+            for(var i=0; i<searchResult.getCurrentNumPois(); i++) 
+            {
+                //获得需要得到的坐标
+                var poi = searchResult.getPoi(i);
+                if (!poi) {
+                    alert("百度API没有搜索到该地址");
+                }
+                // console.log(poi);
+        
+                //设置中心点
+                map.centerAndZoom(poi.point, 13);
+                // 创建标注，为要查询的地方对应的经纬度
+                var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat),{ icon: myIcon });
+                //alert("["+poi.point.lng+","+poi.point.lat+"]");
+                //在地图上添加标识
+                map.addOverlay(marker);
+                //点击标识后显示的内容
+                contents[i] = "你要查找的地方:【"+poi.title+"】<br/>地址："+poi.address;
+                
+                marker.setTitle(contents[i]);
+                //添加点击事件监听
+                marker.addEventListener("click", makerClick);    
+                if (i==0) {
+                    var infoWindow = new BMap.InfoWindow("<p style='font-size:14px;'>" + contents[0] + "</p>");
+                    marker.openInfoWindow(infoWindow); 
+                }
+                    
+            }
+            
+        });
+    local.search(keys);
+    
+    var makerClick = function() {
+        var infoWindow = new BMap.InfoWindow("<p style='font-size:14px;'>" + this.getTitle() + "</p>");
+        this.openInfoWindow(infoWindow);
+    }
+   
+        local.search(name);
+    }
+    // runApp('黄果树瀑布')
+</script>
